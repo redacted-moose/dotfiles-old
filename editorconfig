@@ -32,7 +32,7 @@ insert_final_newline = true
 
 # Max line length
 # Options: an integer
-# max_line_lenght = 80
+# max_line_length = 80
 
 [*.py]
 indent_style = space
