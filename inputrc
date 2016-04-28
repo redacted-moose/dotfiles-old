@@ -1,0 +1,8 @@
+# File completion is case insensitive
+set completion-ignore-case on
+# Hyphens are underscores and vice versa
+set completion-map-case on
+# Match ambiguous patterns
+set show-all-if-ambiguous on
+# Edit lines with vi-like keybindings
+set editing-mode vi
