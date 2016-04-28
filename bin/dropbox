@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+cloudfusion --config ~/.dropbox.ini ~/Dropbox

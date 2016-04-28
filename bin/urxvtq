@@ -1,0 +1,20 @@
+#!/bin/bash
+
+wid=$(xdotool search --classname urxvtq)
+if [ -z "$wid" ]; then
+  urxvtc-launch -name urxvtq -geometry 80x28 -e tmux
+  wid=$(xdotool search --classname urxvtq | head -1)
+  xdotool windowfocus "$wid"
+  # xdotool key Control_L+l
+  wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+  wmctrl -r :ACTIVE: -b add,sticky,above
+else
+  if [ -z "$(xdotool search --onlyvisible --classname urxvtq 2>/dev/null)" ]; then
+    xdotool windowmap "$wid"
+    xdotool windowfocus "$wid"
+    wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+    wmctrl -r :ACTIVE: -b add,sticky,above
+  else
+    xdotool windowunmap "$wid"
+  fi
+fi

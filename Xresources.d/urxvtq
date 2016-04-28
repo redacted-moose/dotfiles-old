@@ -1,0 +1,143 @@
+! urxvtq*termName:                       string
+! urxvtq*geometry:                       geometry
+! urxvtq*chdir:                          string
+! urxvtq*reverseVideo:                   boolean
+! urxvtq*loginShell:                     boolean
+! urxvtq*multiClickTime:                 number
+! urxvtq*jumpScroll:                     boolean
+! urxvtq*skipScroll:                     boolean
+! urxvtq*pastableTabs:                   boolean
+! urxvtq*scrollstyle:                    mode
+urxvtq*scrollBar:                        false
+! urxvtq*scrollBar_right:                boolean
+! urxvtq*scrollBar_floating:             boolean
+! urxvtq*scrollBar_align:                mode
+! urxvtq*thickness:                      number
+! urxvtq*scrollTtyOutput:                boolean
+! urxvtq*scrollTtyKeypress:              boolean
+! urxvtq*scrollWithBuffer:               boolean
+! urxvtq*inheritPixmap:                  boolean
+! urxvtq*transparent:                    boolean
+! urxvtq*tintColor:                      color
+! urxvtq*shading:                        number
+! urxvtq*blurRadius:                     HxV
+! urxvtq*fading:                         number
+! urxvtq*fadeColor:                      color
+! urxvtq*utmpInhibit:                    boolean
+! urxvtq*urgentOnBell:                   boolean
+! urxvtq*visualBell:                     boolean
+! urxvtq*mapAlert:                       boolean
+! urxvtq*meta8:                          boolean
+! urxvtq*mouseWheelScrollPage:           boolean
+! urxvtq*tripleclickwords:               boolean
+! urxvtq*insecure:                       boolean
+! urxvtq*cursorUnderline:                boolean
+urxvtq*cursorBlink:                      true
+! urxvtq*pointerBlank:                   boolean
+urxvtq*background:                       [75]#000000
+urxvtq*foreground:                       [100]#FFFFFF
+! urxvtq*color0:                         color
+! urxvtq*color1:                         color
+! urxvtq*color2:                         color
+! urxvtq*color3:                         color
+! urxvtq*color4:                         color
+! urxvtq*color5:                         color
+! urxvtq*color6:                         color
+! urxvtq*color7:                         color
+! urxvtq*color8:                         color
+! urxvtq*color9:                         color
+! urxvtq*color10:                        color
+! urxvtq*color11:                        color
+! urxvtq*color12:                        color
+! urxvtq*color13:                        color
+! urxvtq*color14:                        color
+! urxvtq*color15:                        color
+! urxvtq*colorBD:                        color
+! urxvtq*colorIT:                        color
+! urxvtq*colorUL:                        color
+! urxvtq*colorRV:                        color
+! urxvtq*underlineColor:                 color
+! urxvtq*scrollColor:                    color
+! urxvtq*troughColor:                    color
+! urxvtq*highlightColor:                 color
+! urxvtq*highlightTextColor:             color
+! urxvtq*cursorColor:                    color
+! urxvtq*cursorColor2:                   color
+! urxvtq*pointerColor:                   color
+! urxvtq*pointerColor2:                  color
+! urxvtq*borderColor:                    color
+! urxvtq*iconFile:                       file
+urxvtq*font:                             xft:Terminess Powerline:size=14:pixelsize=14, \
+                                         xft:Inconsolata for Powerline:size=14:pixelsize=14, \
+                                         xft:WenQuanYi Bitmap Song:size=14, \
+                                         xft:FreeSerif:style=Regular, \
+                                         xft:unifont:style=Medium:antialias=false
+urxvtq*boldFont:                         xft:Terminess Powerline:bold:size=14:pixelsize=14, \
+                                         xft:Inconsolata for Powerline:bold:size=14:pixelsize=14, \
+                                         xft:WenQuanYi Bitmap Song:bold:size=14, \
+                                         xft:FreeSerif:bold:style=Regular, \
+                                         xft:unifont:bold:style=Medium:antialias=false
+! urxvtq*italicFont:                     fontname
+! urxvtq*boldItalicFont:                 fontname
+! urxvtq*intensityStyles:                boolean
+! urxvtq*inputMethod:                    name
+! urxvtq*preeditType:                    style
+! urxvtq*imLocale:                       string
+! urxvtq*imFont:                         fontname
+! urxvtq*title:                          string
+! urxvtq*iconName:                       string
+! urxvtq*saveLines:                      number
+! urxvtq*buffered:                       boolean
+urxvtq*depth:                            32
+! urxvtq*visual:                         number
+! urxvtq*transient-for:                  windowid
+! urxvtq*override-redirect:              boolean
+! urxvtq*hold:                           boolean
+! urxvtq*externalBorder:                 number
+! urxvtq*internalBorder:                 number
+! urxvtq*borderLess:                     boolean
+! urxvtq*lineSpace:                      number
+! urxvtq*letterSpace:                    number
+! urxvtq*skipBuiltinGlyphs:              boolean
+! urxvtq*pointerBlankDelay:              number
+! urxvtq*backspacekey:                   string
+! urxvtq*deletekey:                      string
+! urxvtq*print-pipe:                     string
+! urxvtq*modifier:                       modifier
+! urxvtq*cutchars:                       string
+! urxvtq*answerbackString:               string
+! urxvtq*secondaryScreen:                boolean
+! urxvtq*secondaryScroll:                boolean
+! urxvtq*perl-lib:                       string
+! urxvtq*perl-eval:                      perl-eval
+urxvtq*perl-ext-common:                  default,clipboard,selection-to-clipboard
+! urxvtq*perl-ext:                       string
+urxvtq*iso14755:                         false
+! urxvtq*iso14755_52:                    boolean
+! urxvtq*xrm:                            string
+! urxvtq*keysym.sym:                     keysym
+urxvtq*keysym.C-C:                       perl:clipboard:copy
+urxvtq*keysym.C-V                        perl:clipboard:paste
+urxvtq*keysym.C-A-V                      perl:clipboard:paste_escaped
+! urxvtq*background.border:              boolean
+! urxvtq*background.expr:                string
+! urxvtq*background.interval:            seconds
+! urxvtq*bell-command:                   string
+! urxvtq*kuake.hotkey:                   string
+! urxvtq*matcher.button:                 string
+! urxvtq*matcher.launcher:               string
+! urxvtq*matcher.launcher.*:             string
+! urxvtq*matcher.pattern.*:              string
+! urxvtq*matcher.rend.*:                 string
+! urxvtq*remote-clipboard.fetch:         string
+! urxvtq*remote-clipboard.store:         string
+! urxvtq*searchable-scrollback:          string
+! urxvtq*selection-autotransform.*:      string
+! urxvtq*selection-pastebin.cmd:         string
+! urxvtq*selection-pastebin.url:         string
+! urxvtq*selection.pattern-0:            string
+! urxvtq*tab-bg:                         colour
+! urxvtq*tab-fg:                         colour
+! urxvtq*tabbar-bg:                      colour
+! urxvtq*tabbar-fg:                      colour
+! urxvtq*url-launcher:                   string

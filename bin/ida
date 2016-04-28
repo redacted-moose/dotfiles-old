@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ida=($HOME/lib/idapro/idaq.exe)
+WINEDEBUG=-all IDAUSR="I:\\chris\\.idapro" wine "${ida[$@]}"

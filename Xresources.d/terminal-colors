@@ -1,0 +1,35 @@
+! Background and Foreground
+*background:    #1C1C1C
+*foreground:    #D0D0D0
+
+! Black and Dark Grey
+*color0:    #000000
+*color8:    #555753
+
+! Dark Red and Red
+*color1:    #CC0000
+*color9:    #EF2929
+
+! Dark Green and Green
+*color2:    #4E9A06
+*color10:   #8AE234
+
+! Dark Yellow and Yellow
+*color3:    #C4A000
+*color11:   #FCE94F
+
+! Dark Blue and Blue
+*color4:    #3465A4
+*color12:   #729FCF
+
+! Dark Magenta and Magenta
+*color5:    #75507B
+*color13:   #AD7FA8
+
+! Dark Cyan and Cyan
+*color6:    #06989A
+*color14:   #34E2E2
+
+! Light Grey and White
+*color7:    #D3D7CF
+*color15:   #EEEEEC

@@ -1,0 +1,14 @@
+shell 
+nano
+delete
+shellqq
+search si
+search ge
+open_with primusrun
+search 166
+j1
+open_with 
+l
+
+mkdir P
+!mv Presentations Presentations-old

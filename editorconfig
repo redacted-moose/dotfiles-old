@@ -1,0 +1,42 @@
+# editorconfig.org
+root = true
+
+[*]
+# Indentation style
+# Options: tab, space
+indent_style = tab
+
+# Indentation size
+# Options: an integer, tab
+indent_size = 4
+
+# Tab width
+# Options: an integer
+# tab_width = 4
+
+# End of line character
+# Options: lf, crlf, cr
+end_of_line = lf
+
+# Character set
+# Options: latin1, utf-8, utf-16be, utf-16le
+charset = utf-8
+
+# Trim trailing whitespace
+# Options: true, false
+trim_trailing_whitespace = true
+
+# Insert final newline
+# Options: true, false
+insert_final_newline = true
+
+# Max line length
+# Options: an integer
+# max_line_lenght = 80
+
+[*.py]
+indent_style = space
+# indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false

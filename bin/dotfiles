@@ -1,0 +1,68 @@
+#!/bin/bash
+
+vcsh="$(which vcsh 2> /dev/null)"
+mr="$(which mr 2> /dev/null)"
+git="http://github.com/redacted-moose/vcsh_mr.git"
+config_d=".config/mr/config.d"
+available_d=".config/mr/available.d"
+
+if [[ -z "$vcsh" ]]; then
+    echo "vcsh is not installed.  Please check it is on the path."
+    exit -1
+fi
+
+if [[ -z "$mr" ]]; then
+    echo "mr is not installed.  Please check it is on the path."
+    exit -1
+fi
+
+case "$1" in
+    install)
+        if [[ -f "$HOME/$available_d/$2.vcsh" ]]; then
+            ln -sv "../available.d/$2.vcsh" "$HOME/$config_d/$2.vcsh"
+	else
+	    echo "Not available"
+	fi
+        ;;
+
+    uninstall)
+	if [[ -f "$HOME/$config_d/$2.vcsh" ]]; then
+	    rm -v "$HOME/$config_d/$2.vcsh"
+	else
+	    echo "Not installed"
+	fi
+	;;
+
+    edit)
+        if [[ -f "$HOME/$available_d/$2.vcsh" ]]; then
+            vim "$HOME/.$available_d/$2.vcsh"
+	else
+	    cp "$HOME/$available_d/template.vcsh" "$HOME/$available_d/$2.vcsh"
+	    vim "$HOME/$available_d/$2.vcsh"
+	fi
+        ;;
+
+    update)
+	"$mr" -d "$HOME" update
+	;;
+
+    bootstrap)
+	"$vcsh" clone "$git" mr
+	"$mr" up
+	;;
+
+    repo)
+	echo "Entering $2.git"
+	"$vcsh" $2 > /dev/null 2>&1
+	if [[ "$?" -eq 1 ]]; then
+	    echo "Repo not found"
+	fi
+	;;
+
+    *)
+        echo "Usage: dotfiles install|uninstall|edit config_file"
+	echo "                repo repo_name"
+	echo "                bootstrap"
+	;;
+
+esac
