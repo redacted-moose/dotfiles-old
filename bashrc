@@ -29,15 +29,20 @@ shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
 
+bind Space:magic-space
+
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="&:[ ]*:exit"
 export EDITOR=vim
+export SUDO_EDITOR=${EDITOR}
 export VISUAL='emacsclient -c -a emacs'
 export BROWSER=google-chrome-stable
 export TERMINAL=termite
 export PROMPT_COMMAND='history -a'
 # export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
