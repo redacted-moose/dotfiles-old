@@ -92,17 +92,19 @@ ex ()
   fi
 }
 
-powerline_path=$(python -c 'import os, sys, powerline; sys.stdout.write(os.path.dirname(powerline.__file__))' 2> /dev/null)
-if (echo "$TERM" | grep -qe "256color\|termite") && [[ "$powerline_path" ]]; then
-  powerline-daemon -q
-  POWERLINE_BASH_CONTINUATION=1
-  POWERLINE_BASH_SELECT=1
-  source ${powerline_path}/bindings/bash/powerline.sh
-else
-  # prompt
-  PS1='[\u@\h \W]\$ '
-  BROWSER=/usr/bin/xdg-open
-fi
+# powerline_path=$(python -c 'import os, sys, powerline; sys.stdout.write(os.path.dirname(powerline.__file__))' 2> /dev/null)
+# if (echo "$TERM" | grep -qe "256color\|termite") && [[ "$powerline_path" ]]; then
+#   powerline-daemon -q
+#   POWERLINE_BASH_CONTINUATION=1
+#   POWERLINE_BASH_SELECT=1
+#   source ${powerline_path}/bindings/bash/powerline.sh
+# else
+#   # prompt
+#   PS1='[\u@\h \W]\$ '
+#   BROWSER=/usr/bin/xdg-open
+# fi
+
+source ~/bin/promptline
 
 readme() {
 	for file in *[Rr][Ee][Aa][Dd][Mm][Ee]*; do

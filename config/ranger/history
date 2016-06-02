@@ -7,8 +7,14 @@ search ge
 open_with primusrun
 search 166
 j1
-open_with 
 l
 
 mkdir P
 !mv Presentations Presentations-old
+?
+open_with $VISUAL
+open_with 
+echo $VISUAL
+open_with emacsclient -c
+open_with $VISUAL -- "$@"
+open_with 4

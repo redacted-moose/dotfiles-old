@@ -23,6 +23,13 @@
 					"username": "",
 					"password": ""
 				}
+			},
+			{
+				"function": "powerline.segments.i3wm.workspaces"
+			},
+			{
+				"function": "powerline.segments.common.players.dbus_player",
+				"name": "player"
 			}
 		]
 	}

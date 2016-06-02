@@ -30,6 +30,7 @@ values."
 			 ;; ycmd
 			 better-defaults
 			 syntax-checking
+			 semantic
 			 themes-megapack
 			 (colors :variables
 				 ;; colors-enable-nyan-cat-progress-bar t
@@ -41,7 +42,11 @@ values."
 				 git-gutter-use-fringe t)
 
 			 ;; langs
-			 c-c++
+			 (c-c++ :variables
+				 ;; Set default mode for header files
+			     ;; c-c++-default-mode-for-headers 'c++-mode
+				 ;; Enable Clang support for c-c++ mode
+				 c-c++-enable-clang-support t)
 			 emacs-lisp
 			 latex
 			 markdown
@@ -52,6 +57,7 @@ values."
 			 csharp
 			 ruby
 			 javascript
+			 html
 
 			 ;; Misc
 			 eyebrowse

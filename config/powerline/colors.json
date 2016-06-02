@@ -1,21 +1,24 @@
 {
 	"colors": {
-		"black": 16,
-		"white": 231,
+		"black": 0,
+		"white": 15,
 
 		"green": 2,
 		"darkestgreen": 22,
 		"darkgreen": 28,
 		"mediumgreen": 70,
-		"brightgreen": 148,
+		"brightgreen": 10,
 
+		"cyan": 6,
 		"darkestcyan": 23,
 		"darkcyan": 74,
 		"mediumcyan": 117,
-		"brightcyan": 159,
+		"brightcyan": 14,
 
+		"blue": 4,
 		"darkestblue": 24,
 		"darkblue": 31,
+		"brightblue": 12,
 
 		"red": 1,
 		"darkestred": 52,
@@ -24,9 +27,10 @@
 		"brightred": 160,
 		"brightestred": 196,
 
+		"purple": 5,
 		"darkestpurple": 55,
 		"mediumpurple": 98,
-		"brightpurple": 189,
+		"brightpurple": 13,
 
 		"darkorange": 94,
 		"mediumorange": 166,
@@ -35,6 +39,9 @@
 
 		"yellow": 11,
 		"brightyellow": 220,
+
+		"grey": 8,
+		"lightgrey": 7,
 
 		"gray0": 233,
 		"gray1": 235,
