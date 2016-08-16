@@ -56,10 +56,12 @@ values."
 			 rust
 			 csharp
 			 ruby
+			 ruby-on-rails
 			 javascript
 			 html
 
 			 ;; Misc
+			 ;; vim-powerline
 			 eyebrowse
 			 org
 			 dash
@@ -275,6 +277,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 	;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 	(setq-default rust-enable-racer t)
 	(setq-default omnisharp-server-executable-path "/home/chris/src/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
+    ;; (setq-default frame-title-format '("" "[%b] - Spacemacs " emacs-version))
+    (setq-default frame-title-format '("" "[%b] - Spacemacs " spacemacs-version))
 	)
 
 (defun dotspacemacs/user-config ()

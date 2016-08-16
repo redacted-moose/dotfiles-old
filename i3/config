@@ -57,20 +57,23 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Display Selector
+bindsym XF86Display exec arandr
+
 # Start Applications
 bindsym $mod+Ctrl+b exec i3-sensible-terminal -e 'bmenu'
 bindsym $mod+F2 exec palemoon
-# bindsym $mod+F3 exec pcmanfm
-bindsym $mod+F3 exec i3-sensible-terminal -e ranger
+bindsym $mod+F3 exec pcmanfm
+# bindsym $mod+F3 exec i3-sensible-terminal -e ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec "scrot -e 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'screenshot has been saved to ~/media/screenshots'"
-bindsym $mod+Print --release exec "scrot -ue 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'screenshot has been saved to ~/media/screenshots'"
-bindsym $mod+Shift+Print --release exec "notify-send 'selection will be saved to ~/media/screenshots'; scrot -se 'mv $f ~/media/screenshots'"
-bindsym $mod+Shift+question exec qpdfview i3_help.pdf
+bindsym Print exec "scrot -e 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'"
+bindsym $mod+Print --release exec "scrot -ue 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'"
+bindsym $mod+Shift+Print --release exec "notify-send 'Selection will be saved to ~/media/screenshots'; scrot -se 'mv $f ~/media/screenshots'"
+# bindsym $mod+Shift+question exec qpdfview i3_help.pdf
 bindsym $mod+Ctrl+x exec xkill
 
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
@@ -206,6 +209,8 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [title="Starting Unity..."] floating enable
+for_window [title="Hold On"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -293,6 +298,8 @@ bar {
 # 	i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
 # }
 
+# exec --no-startup-id stalonetray -t
+
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore
@@ -304,7 +311,7 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id compton -b
 # exec --no-startup-id start_conky_grey
-exec --no-startup-id start_conky_green
+# exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 
 # Theme colors

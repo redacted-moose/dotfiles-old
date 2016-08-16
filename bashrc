@@ -37,8 +37,10 @@ export HISTCONTROL='erasedups:ignoreboth'
 export HISTIGNORE="&:[ ]*:exit"
 export EDITOR=vim
 export SUDO_EDITOR=${EDITOR}
-export VISUAL='emacsclient -c -a emacs'
-export BROWSER=google-chrome-stable
+# export VISUAL='emacsclient -c -a emacs'
+export VISUAL=spacemacs
+# export BROWSER=google-chrome-stable
+export BROWSER=chromium
 export TERMINAL=termite
 export PROMPT_COMMAND='history -a'
 # export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -67,6 +69,7 @@ alias db='sudo pacman -Syy'
 alias pkgbuild='$EDITOR PKGBUILD'
 alias printer='system-config-printer'
 alias mount='mount | column -t'
+alias visudo='sudo -E visudo'
 
 # ex - archive extractor
 # usage: ex <file>
@@ -104,13 +107,19 @@ ex ()
 #   BROWSER=/usr/bin/xdg-open
 # fi
 
-source ~/bin/promptline
+if (echo "$TERM" | grep -qe "256color\|termite"); then
+  source ~/bin/promptline
+else
+  # prompt
+  PS1='[\u@\h \W]\$ '
+  BROWSER=/usr/bin/xdg-open
+fi
 
 readme() {
-	for file in *[Rr][Ee][Aa][Dd][Mm][Ee]*; do
-		if [ $file != '*[Rr][Ee][Aa][Dd][Mm][Ee]*' ]; then
-			$EDITOR $file
-			break
-		fi
-	done
+  for file in *[Rr][Ee][Aa][Dd][Mm][Ee]*; do
+    if [ $file != '*[Rr][Ee][Aa][Dd][Mm][Ee]*' ]; then
+      $EDITOR $file
+      break
+    fi
+  done
 }

@@ -31,3 +31,6 @@ if [ -d $HOME/src/rust ]; then
 fi
 
 export DASHT_DOCSETS_DIR="$HOME/.docsets"
+
+export PRIMUS_SYNC=1
+export VGL_READBACK=pbo

@@ -50,7 +50,7 @@ Plug 'scrooloose/syntastic'
 Plug 'zah/nim.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'edkolev/promptline.vim'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
