@@ -1,34 +1,84 @@
+" Plugins
+call plug#begin('~/.vim/bundle')
+
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+
+" Plug 'Shougo/neocomplete.vim'
+"
+Plug 'zah/nim.vim', { 'for': 'nim' }
+
+Plug 'edkolev/promptline.vim'
+" Plug 'edkolev/tmuxline.vim'
+
+Plug 'Yggdroot/indentLine'
+Plug 'Raimondi/delimitMate'
+
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-endif
+" Plugins
+call plug#begin('~/.vim/bundle')
 
-syntax enable " enable syntax highlighting
-set relativenumber " Turn on relative line numbers
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+
+" Plug 'Shougo/neocomplete.vim'
+"
+Plug 'zah/nim.vim', { 'for': 'nim' }
+
+Plug 'edkolev/promptline.vim'
+" Plug 'edkolev/tmuxline.vim'
+
+Plug 'Yggdroot/indentLine'
+Plug 'Raimondi/delimitMate'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
 set number " Turn on line numbers
+set relativenumber " Turn on relative line numbers
 set tabstop=4 " number of visual spaces per tab
 set softtabstop=4 " number of spaces in tab when editing
+set shiftwidth=4
 set expandtab " tabs are spaces
 set showcmd " shows last command at the bottom
 set cursorline " highlights current line
-
-filetype indent on " load filetype specific indentation files
-
-set wildmenu " visual autocomplete for command menu
-set lazyredraw " redraw only when necessary
 set showmatch " highlight matching [{()}]
-
-set incsearch " search as characters are entered
 set hlsearch " highlight matches
-
+set ttyfast " Optimize for fast terminal connections
+set clipboard=unnamed " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 
 " Set the color scheme
-" colorscheme monokai
-" colorscheme molokai
 colorscheme Tomorrow-Night
 let g:rehash256 = 1
 
@@ -36,23 +86,6 @@ let g:rehash256 = 1
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
-
-
-call plug#begin('~/.vim/bundle')
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-commentary'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/syntastic'
-" Plug 'Shougo/neocomplete.vim'
-Plug 'zah/nim.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'edkolev/promptline.vim'
-" Plug 'edkolev/tmuxline.vim'
-
-call plug#end()
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -157,14 +190,6 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " Promptline
-" sections (a, b, c, x, y, z, warn) are optional
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#host() ],
-        \'b' : [ promptline#slices#user() ],
-        \'c' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#vcs_branch() ],
-        \'warn' : [ promptline#slices#last_exit_code() ]}
-
 " available slices:
 "
 " promptline#slices#cwd() - current dir, truncated to 3 dirs. To configure: promptline#slices#cwd({ 'dir_limit': 4 })
@@ -185,3 +210,18 @@ let g:promptline_preset = {
 "
 " to disable powerline symbols
 " `let g:promptline_powerline_symbols = 0`
+"
+" sections (a, b, c, x, y, z, warn) are optional
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#host() ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]}
+
+
+" IndentLine
+let g:indentLine_enabled = 0 " disable by default
+let g:indentLine_color_term = 239
+let g:indentLine_char = '│'
+

@@ -1,0 +1,51 @@
+#!/bin/bash
+
+export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="&:[ ]*:exit"
+export EDITOR=vim
+export SUDO_EDITOR=${EDITOR}
+export VISUAL=spacemacs
+export BROWSER=chromium
+export TERMINAL=termite
+export PROMPT_COMMAND='history -a'
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
+
+# Add bin to PATH
+if [ -d $HOME/bin ]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+# Add local programs to PATH
+if [ -d $HOME/.local/bin ]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d $HOME/.nimble/bin ]; then
+	export PATH="$HOME/.nimble/bin:$PATH"
+fi
+
+if [ -d $HOME/.cargo/bin ]; then
+	export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+if [ -d $HOME/.gem/ruby/2.3.0/bin ]; then
+	export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
+fi
+
+if [ -d $HOME/src/rust ]; then
+	export RUST_SRC_PATH="$HOME/src/rust/src"
+fi
+
+export DASHT_DOCSETS_DIR="$HOME/.docsets"
+
+export PRIMUS_SYNC=1
+export VGL_READBACK=pbo
+

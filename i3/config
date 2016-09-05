@@ -33,8 +33,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start program launcher
-# bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+d exec --no-startup-id rofi -show run -fuzzy
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="rofi -dmenu -p 'run:' -i"
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -61,31 +61,30 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Display exec arandr
 
 # Start Applications
-bindsym $mod+Ctrl+b exec i3-sensible-terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec i3-sensible-terminal -e ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec "scrot -e 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'"
-bindsym $mod+Print --release exec "scrot -ue 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'"
-bindsym $mod+Shift+Print --release exec "notify-send 'Selection will be saved to ~/media/screenshots'; scrot -se 'mv $f ~/media/screenshots'"
-# bindsym $mod+Shift+question exec qpdfview i3_help.pdf
+bindsym $mod+Ctrl+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+# bindsym Print exec "scrot -e 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'"
+# bindsym $mod+Print --release exec "scrot -ue 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'"
+# bindsym $mod+Shift+Print --release exec "notify-send 'Selection will be saved to ~/media/screenshots'; scrot -se 'mv $f ~/media/screenshots'"
 bindsym $mod+Ctrl+x exec xkill
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+plug scratchpad show
 
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-# bindsym $mod+odiaeresis focus right
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -94,11 +93,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+odiaeresis move right
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -112,10 +110,10 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split in horizontal orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+Shift+backslash split h;exec notify-send 'tile horizontally'
 
 # split in vertical orientation
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+bindsym $mod+minus split v;exec notify-send 'tile vertically'
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -154,8 +152,8 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 
 #navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next_on_output
+bindsym $mod+Ctrl+Left workspace prev_on_output
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace number 1
@@ -267,13 +265,24 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# take a screenshot with scrot, put it in screenshots folder
+bindsym Print mode "$mode_screenshot"
+set $mode_screenshot entire (s)creen, current (w)indow, select (r)egion
+mode "$mode_screenshot" {
+		bindsym s exec --no-startup-id "scrot -e 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'", mode default
+		bindsym --release w exec --no-startup-id "scrot -ue 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'", mode default
+		bindsym --release r exec --no-startup-id "notify-send 'Selection will be saved to ~/media/screenshots'; scrot -se 'mv $f ~/media/screenshots'; sleep 1; exec notify-send 'Screenshot has been saved to ~/media/screenshots'", mode default
+        bindsym Escape mode "default"
+}
+
 # Lock screen
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	position top
-	i3bar_command i3bar -t
+	# i3bar_command i3bar -t
+	i3bar_command i3bar
 	# status_command i3status
 	status_command i3blocks
 	# wheel_up_cmd nop
@@ -282,15 +291,15 @@ bar {
 	colors {
 		separator #2ECC71
 		# background #000000
-		# background #1D1F21CC
-		background #00000000
+		background #1D1F21
+		# background #00000000
 		statusline #DDDDDD
 		# focused_workspace #FFFFFF #2ECC71 #000000
-		focused_workspace #FFFFFF #B5BD68 #000000
-		active_workspace #000000 #A4A28D #FFFFFF
-		inactive_workspace #A4A28D #000000 #DDDDDD
+		focused_workspace #B5BD68 #B5BD68 #000000
+		active_workspace #A4A28D #A4A28D #FFFFFF
+		inactive_workspace #1D1F21 #1D1F21 #DDDDDD
 		# urgent_workspace #2ECC71 #900000 #FFFFFF
-		urgent_workspace #B5BD68 #CC6666 #FFFFFF
+		urgent_workspace #CC6666 #CC6666 #FFFFFF
 	}
 }
 

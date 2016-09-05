@@ -1,0 +1,3 @@
+DOTFILES_DIRS="$HOME/etc"
+SYMLINK_DIRS="vim-plug tpm emacs.d fzf fzf-extras"
+UNDOTTED="bin"
