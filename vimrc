@@ -1,35 +1,3 @@
-" Plugins
-call plug#begin('~/.vim/bundle')
-
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-commentary'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-Plug 'terryma/vim-multiple-cursors'
-
-Plug 'editorconfig/editorconfig-vim'
-
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
-
-" Plug 'Shougo/neocomplete.vim'
-"
-Plug 'zah/nim.vim', { 'for': 'nim' }
-
-Plug 'edkolev/promptline.vim'
-" Plug 'edkolev/tmuxline.vim'
-
-Plug 'Yggdroot/indentLine'
-Plug 'Raimondi/delimitMate'
-
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
-Plug 'junegunn/fzf.vim'
-
-call plug#end()
-
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
@@ -51,8 +19,10 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 
 " Plug 'Shougo/neocomplete.vim'
-"
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 Plug 'zah/nim.vim', { 'for': 'nim' }
+" Plug 'baabelfish/nvim-nim', { 'for': 'nim' }
 
 Plug 'edkolev/promptline.vim'
 " Plug 'edkolev/tmuxline.vim'
@@ -60,8 +30,11 @@ Plug 'edkolev/promptline.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'Raimondi/delimitMate'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'frozen': 1, 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
+
+" Plug  'xolox/vim-misc' | Plug 'xolox/vim-easytags'
 
 call plug#end()
 
@@ -77,6 +50,7 @@ set showmatch " highlight matching [{()}]
 set hlsearch " highlight matches
 set ttyfast " Optimize for fast terminal connections
 set clipboard=unnamed " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set foldmethod=syntax " Turn on folds using syntax-defined folding
 
 " Set the color scheme
 colorscheme Tomorrow-Night
@@ -116,78 +90,8 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" neocomplete
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 " Promptline
 " available slices:
@@ -225,3 +129,6 @@ let g:indentLine_enabled = 0 " disable by default
 let g:indentLine_color_term = 239
 let g:indentLine_char = '│'
 
+" Easytags
+" let g:easytags_auto_update = 0 " Disable auto tag updating because gutentags will handle it
+let g:easytags_async = 1 " Enable asynchronous tag updates

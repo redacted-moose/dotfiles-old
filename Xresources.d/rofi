@@ -76,6 +76,7 @@ rofi.kb-remove-word-back:            Control+Alt+h
 rofi.kb-remove-word-forward:         Control+Alt+d
 rofi.kb-remove-char-forward:         Delete,Control+d
 rofi.kb-remove-char-back:            BackSpace,Control+h
+rofi.kb-remove-to-eol:				 Shift+Delete
 rofi.kb-accept-entry:                Control+m,Return,KP_Enter
 rofi.kb-accept-custom:               Control+Return
 rofi.kb-accept-entry-continue:       Shift+Return

@@ -14,6 +14,11 @@ if ! shopt -oq posix; then
 fi
 
 # Set up prompt
+if [[ $TERM == xterm-termite ]]; then
+	. /etc/profile.d/vte.sh
+	__vte_prompt_command
+fi
+
 if (echo "$TERM" | grep -qe "256color\|termite") && [[ -f ~/bin/promptline ]]; then
     source ~/bin/promptline
 else
