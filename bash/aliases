@@ -1,0 +1,32 @@
+#!/bin/bash
+
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto -d skip'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias cp='cp -i'                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+# alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
+alias update='sudo apt update'
+alias upgrade='update && sudo apt upgrade'
+alias dist-upgrade='update && sudo apt dist-upgrade'
+alias search='apt search'
+alias remove='sudo apt remove'
+alias autoremove='sudo apt-get autoremove'
+alias con='$EDITOR $HOME/.i3/config'
+alias comp='$EDITOR $HOME/.config/compton.conf'
+alias inst='sudo apt install'
+alias printer='system-config-printer'
+alias mount='mount | column -t'
+alias visudo='sudo -E visudo'
+alias reload='source ~/.bashrc'
+alias vimrc='vim ~/.vim/vimrc'
+
+if [[ -f ~/.bash/private/aliases ]]; then
+	source ~/.bash/private/aliases
+fi

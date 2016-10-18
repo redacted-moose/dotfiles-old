@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Add bin to PATH
+if [ -d "$HOME/bin" ]; then
+	PATH="$HOME/bin:$PATH"
+fi
+
+# Add local programs to PATH
+if [ -d "$HOME/.local/bin" ]; then
+	PATH="$HOME/.local/bin:$PATH"
+fi
+
+export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="&:[ ]*:exit"
+export EDITOR=vim
+export SUDO_EDITOR=${EDITOR}
+export BROWSER=firefox
+export TERMINAL=termite
+export PROMPT_COMMAND='history -a'
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export DASHT_DOCSETS_DIR="$HOME/.docsets"
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+export GOROOT="$HOME/.local/go/"
+export GOPATH="$HOME/.local/"
+
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
+
+export FZF_TMUX=0
+
+if [[ -f ~/.bash/private/exports ]]; then
+	source ~/.bash/private/exports
+fi

@@ -1,0 +1,3 @@
+DOTFILES_DIRS="/home/local/ANT/chrsad/etc"
+SYMLINK_DIRS="vim-plug tpm fzf fzf-extras"
+UNDOTTED="bin"

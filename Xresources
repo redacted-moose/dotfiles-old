@@ -8,13 +8,13 @@
 #include ".Xresources.d/rofi"
 
 URxvt.font: 9x15
-Xft.dpi: 96
-Xft.antialias: true
-Xft.hinting: true
-Xft.rgba: rgb
-Xft.autohint: false
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
+! Xft.dpi: 96
+! Xft.antialias: true
+! Xft.hinting: true
+! Xft.rgba: rgb
+! Xft.autohint: false
+! Xft.hintstyle: hintslight
+! Xft.lcdfilter: lcddefault
 ! Xcursor.theme: Chameleon-Pearl-Regular-0.5
 Xcursor.size:  0
 URxvt.depth: 32

@@ -42,27 +42,28 @@ values."
 				 git-gutter-use-fringe t)
 
 			 ;; langs
-			 (c-c++ :variables
+			 ;; (c-c++ :variables
 				 ;; Set default mode for header files
 			     ;; c-c++-default-mode-for-headers 'c++-mode
 				 ;; Enable Clang support for c-c++ mode
-				 c-c++-enable-clang-support t)
+				 ;; c-c++-enable-clang-support t)
 			 emacs-lisp
-			 latex
+			 ;; latex
 			 markdown
-			 nim
-			 (python :variables
-				 python-test-runner 'pytest)
-			 rust
-			 csharp
-			 ruby
-			 ruby-on-rails
+			 ;; nim
+			 ;; (python :variables
+				 ;; python-test-runner 'pytest)
+			 ;; rust
+			 ;; csharp
+			 ;; ruby
+			 ;; ruby-on-rails
+       java
 			 javascript
 			 html
 
 			 ;; Misc
 			 ;; vim-powerline
-			 eyebrowse
+			 ;; eyebrowse
 			 org
 			 dash
 			 (shell :variables
@@ -375,8 +376,12 @@ you should place your code here."
 		(define-key c++-mode-map [tab] 'clang-format-buffer))
 
 	;; Editorconfig
-	(editorconfig-mode 1)
-	)
+  (editorconfig-mode 1)
+
+  ;; Eclim
+  (setq eclim-eclipse-dirs "/opt/eclipse"
+        eclim-executable "/opt/eclipse/eclim")
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

@@ -1,0 +1,217 @@
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+source $HOME/.vim/vimruntimehook
+
+" Plugins
+call plug#begin('~/.vim/bundle')
+
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'editorconfig/editorconfig-vim'
+
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+
+Plug 'edkolev/promptline.vim'
+Plug 'edkolev/tmuxline.vim'
+
+Plug 'Yggdroot/indentLine'
+
+Plug 'Raimondi/delimitMate'
+
+Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'xolox/vim-easytags' | Plug 'xolox/vim-misc'
+
+" vim-snippets depends on ultisnips
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" Local plugins
+Plug 'junegunn/fzf', { 'frozen': 1, 'dir': '~/.fzf' }
+Plug 'junegunn/fzf.vim'
+
+" Plug g:plug_home.'/taghighlight', { 'frozen': 1 }
+
+Plug g:plug_home.'/eclim', { 'frozen': 1, 'for': 'java' }
+
+" Plug g:plug_home.'/easycolour', { 'frozen': 1 }
+
+call plug#end()
+
+" Configuration
+
+set number " Turn on line numbers
+set relativenumber " Turn on relative line numbers
+set tabstop=4 " number of visual spaces per tab
+set softtabstop=4 " number of spaces in tab when editing
+set shiftwidth=4
+set expandtab " tabs are spaces
+set showcmd " shows last command at the bottom
+set cursorline " highlights current line
+set showmatch " highlight matching [{()}]
+set hlsearch " highlight matches
+set ttyfast " Optimize for fast terminal connections
+set clipboard=unnamed " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set foldmethod=syntax " Use the syntax defined folds for code
+set linebreak " Break at the end of words instead of the middle, breaks list! :set nolist to fix
+set hidden " Allow vim to make hidden buffers
+set lazyredraw " Allow vim to redraw the screen lazily
+
+" set list lcs=tab:│\
+
+" Set the color scheme
+colorscheme Tomorrow-Night
+let g:rehash256 = 1
+
+" Change cursor style for different modes
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
+" Map leader to Space
+let mapleader="\<SPACE>"
+" imap <leader>n <c-n>
+nmap <leader>b :Buffers<CR>
+nmap <leader>bn :bn<CR>
+nmap <leader>bp :bp<CR>
+nmap <leader>f :Files<CR>
+nmap <leader>t :Tags<CR>
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'tomorrow'
+set laststatus=2
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Promptline
+" available slices:
+"
+" promptline#slices#cwd() - current dir, truncated to 3 dirs. To configure: promptline#slices#cwd({ 'dir_limit': 4 })
+" promptline#slices#vcs_branch() - branch name only. By default, only git branch is enabled. Use promptline#slices#vcs_branch({ 'hg': 1, 'svn': 1, 'fossil': 1}) to enable check for svn, mercurial and fossil branches. Note that always checking if inside a branch slows down the prompt
+" promptline#slices#last_exit_code() - display exit code of last command if not zero
+" promptline#slices#jobs() - display number of shell jobs if more than zero
+" promptline#slices#battery() - display battery percentage (on OSX and linux) only if below 10%. Configure the threshold with promptline#slices#battery({ 'threshold': 25 })
+" promptline#slices#host() - current hostname.  To hide the hostname unless connected via SSH, use promptline#slices#host({ 'only_if_ssh': 1 })
+" promptline#slices#user()
+" promptline#slices#python_virtualenv() - display which virtual env is active (empty is none)
+" promptline#slices#git_status() - count of commits ahead/behind upstream, count of modified/added/unmerged files, symbol for clean branch and symbol for existing untraced files
+"
+" any command can be used in a slice, for example to print the output of whoami in section 'b':
+"       \'b' : [ '$(whoami)'],
+"
+" more than one slice can be placed in a section, e.g. print both host and user in section 'a':
+"       \'a': [ promptline#slices#host(), promptline#slices#user() ],
+"
+" to disable powerline symbols
+" `let g:promptline_powerline_symbols = 0`
+
+" sections (a, b, c, x, y, z, warn) are optional
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#host() ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#vcs_branch() ],
+        \'warn' : [ promptline#slices#last_exit_code() ]
+	\ }
+
+" IndentLine
+let g:indentLine_enabled = 0 " disable by default
+let g:indentLine_color_term = 239
+let g:indentLine_char = '│'
+
+" Ultisnips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+" SuperTab
+let g:SuperTabDefaultCompletionType = 'context' " Use context based completion to integrate with eclim if available
+" <c-j> is <c-n>
+inoremap <c-j> <c-n>
+" <c-k> is <c-p>
+inoremap <c-k> <c-p>
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Gutentags
+let g:gutentags_enabled = 0
+set statusline+=%{gutentags#statusline('[Generating...]')}
+let g:gutentags_tagfile = '.tags'
+let g:gutentags_file_list_command = {
+	\ 'markers': {
+		\ '.git': 'git ls-files',
+		\ '.hg': 'hg files',
+		\ },
+	\ }
+
+" Easytags
+let g:easytags_async = 1
+let g:easytags_file = '~/.vimtags/global.tags'
+set tags=./.tags;,~/.vimtags/global.tags " Where the tags are stored
+let g:easytags_dynamic = 1 " Use project specific tags
+
+" Eclim
+function! SetupJavaMode()
+	" Enable gutentags
+	let g:gutentags_enabled = 1
+	let g:gutentags_add_default_project_roots = 0
+
+	" Easytags
+	let g:easytags_auto_update = 0 " Disable auto tags generation, gutentags will do this
+	" set tags=../../.tags;,~/.vimtags/java.tags
+	set tags=./.tags,../../.tags,~/.vimtags/java/lang.tags,~/.vimtags/java/util.tags
+
+	" Patterns for java
+	let g:deoplete#omni_patterns = {}
+	let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+	" let g:deoplete#omni_patterns.java = '\k\.\k*'
+
+	if eclim#EclimAvailable() " If eclim is available
+		" Using deoplete
+		let g:EclimCompletionMethod = 'omnifunc'
+
+		" When debugging, use the horizontal layout
+		let	g:EclimJavaDebugStatusWinOrientation='horizontal'
+
+		" maps Ctrl-Shift-F to eclipse's Ctrl-Shift-F key binding (Format code)
+		nmap <silent> <c-s-f> :JavaFormat<CR>
+
+		" maps Ctrl-Shift-O to eclipse's Ctrl-Shift-O key binding (Fix imports)
+		nmap <silent> <c-s-o> :JavaImportOrganize<CR>
+
+		" maps Ctrl-C to eclipse's Ctrl-Alt-C key binding (Clean up...)
+		nmap <silent> <c-c> :call eclim#vimplugin#FeedKeys('Ctrl+Alt+C')<CR>
+	endif
+endfunction
+
+autocmd FileType java :call SetupJavaMode()
+" Or
+" autocmd BufNewFile,BufRead *.java :call SetupEclim()

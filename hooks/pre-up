@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd ~/etc
+git submodule update --init --merge &> /dev/null
+git submodule foreach "git pull origin master"
+cd - &> /dev/null

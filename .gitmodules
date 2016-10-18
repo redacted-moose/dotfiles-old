@@ -1,0 +1,12 @@
+[submodule "vim/vim-plug"]
+	path = vim/vim-plug
+	url = https://github.com/junegunn/vim-plug
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "fzf-extras"]
+	path = fzf-extras
+	url = https://github.com/atweiden/fzf-extras

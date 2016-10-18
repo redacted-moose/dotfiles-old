@@ -9,7 +9,8 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Terminus 9
+# font = Terminus 9
+font = Source Code Pro 9
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -22,7 +23,7 @@ cursor_blink = system
 cursor_shape = block
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
-browser = google-chrome-stable
+browser = firefox
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
@@ -40,7 +41,9 @@ foreground_bold = #ffffff
 #foreground_dim = #888888
 #background = #ededed
 #background = #1d1f21
-background = rgba(29, 31, 33, 0.8)
+# background = rgba(29, 31, 33, 0.99)
+# background = rgba(38, 38, 38, 0.95)
+background = #262626
 #cursor = #aeafad
 
 # if unset, will reverse foreground and background
