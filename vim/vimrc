@@ -69,6 +69,8 @@ set foldmethod=syntax " Use the syntax defined folds for code
 set linebreak " Break at the end of words instead of the middle, breaks list! :set nolist to fix
 set hidden " Allow vim to make hidden buffers
 set lazyredraw " Allow vim to redraw the screen lazily
+set splitbelow " Horizontal splits open below
+set splitright " Vertical splits open to the right
 
 " set list lcs=tab:│\
 
@@ -89,6 +91,11 @@ nmap <leader>bn :bn<CR>
 nmap <leader>bp :bp<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>t :Tags<CR>
+
+nnoremap <m-h> <c-w>h
+nnoremap <m-j> <c-w>j
+nnoremap <m-k> <c-w>k
+nnoremap <m-l> <c-w>l
 
 " vim-airline
 let g:airline_powerline_fonts = 1

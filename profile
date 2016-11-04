@@ -24,11 +24,7 @@ synclient TapButton3=3
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
 	# include bash exports
-	[[ -f "$HOME/.bash/exports" ]] && . "$HOME/.bash/exports"
-	# include .bashrc if it exists
-	if [ -f "$HOME/.bashrc" ]; then
-		. "$HOME/.bashrc"
-	fi
+	[ -f "$HOME/.bash/exports" ] && . "$HOME/.bash/exports"
 fi
 
 if which dbus-launch >/dev/null && test -z "$DBUS_SESSION_BUS_ADDRESS"; then

@@ -1,8 +1,12 @@
 # If not running interactively, don't do anything
-case $- in
-	*i*) ;;
-	  *) return;;
-esac
+# case $- in
+# 	*i*) ;;
+# 	  *) return;;
+# esac
+
+[[ -f ~/.bash/exports ]] && source ~/.bash/exports
+[[ -f ~/.bash/aliases ]] && source ~/.bash/aliases
+[[ -f ~/.bash/functions ]] && source ~/.bash/functions
 
 # Bash completion
 if ! shopt -oq posix; then
@@ -25,7 +29,7 @@ if (echo "$TERM" | grep -qe "256color\|termite") || [[ $COLORTERM = "gnome-termi
 else
 	# prompt
 	PS1='[\u@\h \W]\$ '
-	BROWSER=/usr/bin/xdg-open
+	# BROWSER=/usr/bin/xdg-open
 fi
 
 # Dircolors if available
@@ -48,10 +52,6 @@ shopt -s extglob
 shopt -s histappend
 shopt -s hostcomplete
 shopt -s nocaseglob
-
-[[ -f ~/.bash/aliases ]] && source ~/.bash/aliases
-
-[[ -f ~/.bash/functions ]] && source ~/.bash/functions
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -d ~/.fzf-extras ] && source ~/.fzf-extras/fzf-extras.sh

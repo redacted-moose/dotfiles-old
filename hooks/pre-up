@@ -2,5 +2,6 @@
 
 cd ~/etc
 git submodule update --init --merge &> /dev/null
-git submodule foreach "git pull origin master"
+# git submodule foreach "git pull origin master"
+git submodule update --remote
 cd - &> /dev/null
