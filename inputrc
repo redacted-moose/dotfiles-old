@@ -34,4 +34,4 @@ set output-meta on
 set convert-meta off
 
 # Space expands commands with a ! in them
-Space:magic-space
+# Space:magic-space

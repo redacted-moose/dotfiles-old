@@ -1,5 +1,5 @@
 ! rofi configuration
-rofi.modi:                           window,run,ssh
+rofi.modi:                           window,run,ssh,drun
 rofi.opacity:                        100
 rofi.width:                          50
 rofi.lines:                          15

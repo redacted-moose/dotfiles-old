@@ -7,12 +7,20 @@ export HISTIGNORE="&:[ ]*:exit"
 export EDITOR=vim
 export SUDO_EDITOR=${EDITOR}
 export VISUAL=spacemacs
-# export BROWSER=chromium
 export BROWSER=firefox
 export TERMINAL=termite
 export PROMPT_COMMAND='history -a'
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+# Colors for man pages
+export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
+export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode – bold, magenta
+export LESS_TERMCAP_me=$(printf '\e[0m') # turn off all appearance modes (mb, md, so, us)
+export LESS_TERMCAP_se=$(printf '\e[0m') # leave standout mode
+export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
+export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
+export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode – cyan
 
 export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
@@ -42,7 +50,8 @@ if [ -d $HOME/.gem/ruby/2.3.0/bin ]; then
 fi
 
 if [ -d $HOME/src/rust ]; then
-	export RUST_SRC_PATH="$HOME/src/rust/src"
+	# export RUST_SRC_PATH="$HOME/src/rust/src"
+	export RUST_SRC_PATH="/usr/src/rust"
 fi
 
 export DASHT_DOCSETS_DIR="$HOME/.docsets"
@@ -50,3 +59,7 @@ export DASHT_DOCSETS_DIR="$HOME/.docsets"
 export PRIMUS_SYNC=1
 export VGL_READBACK=pbo
 
+export QT_QPA_PLATFORMTHEME='qt5ct'
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dsun.java2d.opengl=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+export IDEA_JDK="not-a-jdk"

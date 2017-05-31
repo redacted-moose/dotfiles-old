@@ -1,3 +1,4 @@
 DOTFILES_DIRS="$HOME/etc"
-SYMLINK_DIRS="vim-plug tpm emacs.d fzf fzf-extras"
+SYMLINK_DIRS="vim-plug tpm emacs.d spacemacs.d fzf fzf-extras"
 UNDOTTED="bin"
+TAGS="bash spacemacs"

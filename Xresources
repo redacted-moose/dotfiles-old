@@ -8,7 +8,7 @@
 #include ".Xresources.d/rofi"
 
 URxvt.font: 9x15
-Xft.dpi: 96
+!  Xft.dpi: 96
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb

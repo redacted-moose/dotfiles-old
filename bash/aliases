@@ -14,8 +14,10 @@ alias free='free -m'                      # show sizes in MB
 
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 
-alias update='pacaur -Syuua'
-alias inst='sudo pacaur -S'
+alias update='pacaur -Syuu'
+alias inst='pacaur -S'
+alias search='pacaur -Ss'
+alias remove='pacaur -Rsn'
 alias orphans='pacaur -Qdt'
 alias db='sudo pacaur -Syy'
 alias fixit='sudo rm -f /var/lib/pacman/db.lck'
@@ -31,3 +33,5 @@ alias mount='mount | column -t'
 alias visudo='sudo -E visudo'
 alias reload='source ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
+alias path='echo $PATH | tr -s ":" "\n"'
+alias clr='printf "\33c\e[3J"'

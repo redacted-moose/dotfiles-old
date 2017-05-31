@@ -13,3 +13,6 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf
+[submodule "spacemacs.d"]
+	path = spacemacs.d
+	url = git://github.com/syl20bnr/spacemacs.git
